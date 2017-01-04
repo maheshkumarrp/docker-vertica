@@ -1,14 +1,18 @@
-# docker images for HPE Vertica
+# Docker images for HPE Vertica
 
-Docker images collection for Vertica database
+Docker images collection for HPE Vertica database
 
-Vertica is a column oriented database from HPE.  
-It's available with both a free community licence, and an entreprise one.
+HPE Vertica Analytics Platform from Hewlett Packard Enterprise is a column-oriented, relational database system built specifically to handle modern analytic workloads.
+It's available with both a free community licence (up to 1 TB and 3 nodes) and an entreprise one.
 
 ## Flavours
 
 Following Vertica/Operating systems versions are provided:
 
+- Vertica 8.0.1
+  * on Debian Wheezy 7.10
+  * on Ubuntu LTS 14.04
+  * on Centos 6 & 7
 - Vertica 7.2.3
   * on Debian Wheezy 7.10
   * on Ubuntu LTS 14.04
@@ -25,7 +29,7 @@ Following Vertica/Operating systems versions are provided:
 
 You can use theses images without persistent data store:
 
-    docker run -p 5433:5433 jbfavre/vertica:7.2.3-0_debian-7.10
+    docker run -p 5433:5433 yuntaz/vertica:8.0.1-0_centos-7.10
 
 Or with persistent data store:
 
@@ -44,6 +48,7 @@ Then, use following command:
                  --build-arg VERTICA_PACKAGE=vertica_<Vertica_version>_amd64.deb \
                  -t jbfavre/vertica:<Vertica_version>_<OS_codename>-<OS_version> .
 
-## Want to contribute ?
-
-Fork, dev, make a PR :)
+## Author				 
+Based on the original work of jbfavre.
+Yuntaz is an HPE big data partner from Mexico.
+If you want to know more about Vertica, let's talk hi@yuntaz.com
