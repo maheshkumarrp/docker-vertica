@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM centos:centos6.6
 MAINTAINER Yuntaz <docker@yuntaz.com>
 
 ARG VERTICA_PACKAGE="vertica-8.0.1-0.x86_64.RHEL6.rpm"
