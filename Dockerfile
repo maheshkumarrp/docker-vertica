@@ -9,6 +9,7 @@ ENV SHELL "/bin/bash"
 
 USER root
 
+RUN chsh -s /bin/bash
 RUN yum -q -y update 
 RUN yum update tzdata 
 RUN systemctl mask firewalld 
@@ -31,6 +32,7 @@ RUN yum localinstall -q -y /tmp/${VERTICA_PACKAGE}
 
 USER dbadmin
 
+RUN chsh -s /bin/bash
 RUN /opt/vertica/sbin/install_vertica --license CE --accept-eula --hosts 127.0.0.1 --dba-user-password-disabled --failure-threshold NONE --no-system-configuration
 RUN gosu dbadmin /opt/vertica/bin/admintools -t create_db -s localhost -d docker -c /home/dbadmin/docker/catalog -D /home/dbadmin/docker/data
 
