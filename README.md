@@ -9,19 +9,19 @@ We have a different branch based on the supported operating systems.
 Everything supported by the HPE team is provided except for the RHEL os which is not 
 Following Vertica/Operating systems versions are provided:
 
-OS | Version | 
---- | --- |
-**CentOS**| 6.6 |
-**CentOS**| 6.7 |
-**CentOS**| 6.8 |
-**CentOS**| 7.0 |
-**SUSE**| 11.0 SP3 |
-**Oracle**| 6.7 |
-**Debian**| 7.6 |
-**Debian**| 7.7 |
-**Debian**| 8.5 |
-**Ubuntu**| 12.04 LTS | 
-**Ubuntu**| 14.04 LTS | 
+OS | Version | Branch |
+--- | --- | --- |
+**CentOS**| 6.6 | centos6.6 | 
+**CentOS**| 6.7 | centos6.7 |
+**CentOS**| 6.8 | centos6.8 |
+**CentOS**| 7.0 | master |
+**SUSE**| 11.0 SP3 |  suse11.0 |
+**Oracle**| 6.7 |  oracle6.7 |
+**Debian**| 7.6 |  debian7.6 |
+**Debian**| 7.7 |  debian7.7 |
+**Debian**| 8.5 |  debian8.5 |
+**Ubuntu**| 12.04 LTS | ubuntu12.04 | 
+**Ubuntu**| 14.04 LTS | ubuntu14.04 | 
 
 ## Usage
 
