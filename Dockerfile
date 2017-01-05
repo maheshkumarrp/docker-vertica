@@ -5,15 +5,26 @@ ARG VERTICA_PACKAGE="vertica-8.0.1-0.x86_64.RHEL6.rpm"
 
 ENV LANG en_US.utf8
 ENV TZ UTC
+ENV SHELL "/bin/bash"
 
 RUN yum -q -y update \
- && yum -q -y install openssl curl wget \
+ && yum update tzdata \
+ && systemctl mask firewalld \
+ && systemctl disable firewalld \ 
+ && systemctl stop firewalld \
+ && /sbin/service ntpd restart \
+ && /sbin/chkconfig ntpd on \
+ && yum -q -y install openssl curl \
  && /usr/bin/curl -o /usr/local/bin/gosu -SL 'https://github.com/tianon/gosu/releases/download/1.1/gosu' \
  && /bin/chmod +x /usr/local/bin/gosu \
  && /usr/sbin/groupadd -r verticadba \
  && /usr/sbin/useradd -r -m -s /bin/bash -g verticadba dbadmin \
  && /usr/local/bin/gosu dbadmin mkdir /tmp/.python-eggs \
- && yum install -y iproute which mcelog gdb sysstat openssh-server openssh-clients
+ && yum install -y dialog iproute which mcelog gdb sysstat openssh-server openssh-clients \
+ && echo session required pam_limits.so >> /etc/pam.d/su \
+ && sysctl -w kernel.pid_max=524288 \
+ && echo never > /sys/kernel/mm/redhat_transparent_hugepage/enabled
+
 
 RUN /usr/bin/curl -o /tmp/${VERTICA_PACKAGE} 'http://downloads.yuntaz.com/vertica/${VERTICA_PACKAGE}'  \
  && yum localinstall -q -y /tmp/${VERTICA_PACKAGE}
