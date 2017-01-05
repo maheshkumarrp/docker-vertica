@@ -5,7 +5,7 @@ It's available with both a free community licence (up to 1 TB and 3 nodes) and a
 More information [Here](https://github.com/Yuntaz/docker-vertica/blob/master/README.md)
 
 ## Operating System
-CentOs 6.6  
+CentOs 6.8  
 
 # Author			 
 Yuntaz is an HPE big data partner from Mexico.
