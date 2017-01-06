@@ -14,7 +14,6 @@ RUN yum -q -y update
 RUN yum update tzdata 
 RUN bash -c 'systemctl mask firewalld'
 RUN bash -c 'systemctl disable firewalld'
-RUN bash -c 'systemctl stop firewalld' 
 RUN bash -c '/sbin/service ntpd restart'
 RUN bash -c '/sbin/chkconfig ntpd on' 
 RUN yum -q -y install openssl curl 
