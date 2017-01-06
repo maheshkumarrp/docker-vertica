@@ -12,11 +12,11 @@ USER root
 RUN chsh -s /bin/bash
 RUN yum -q -y update 
 RUN yum update tzdata 
-RUN systemctl mask firewalld 
-RUN systemctl disable firewalld 
-RUN systemctl stop firewalld 
-RUN /sbin/service ntpd restart 
-RUN /sbin/chkconfig ntpd on 
+RUN bash -c 'systemctl mask firewalld'
+RUN bash -c 'systemctl disable firewalld'
+RUN bash -c 'systemctl stop firewalld' 
+RUN bash -c '/sbin/service ntpd restart'
+RUN bash -c '/sbin/chkconfig ntpd on' 
 RUN yum -q -y install openssl curl 
 RUN /usr/bin/curl -o /usr/local/bin/gosu -SL 'https://github.com/tianon/gosu/releases/download/1.1/gosu' 
 RUN /bin/chmod +x /usr/local/bin/gosu 
